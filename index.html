@@ -1577,6 +1577,79 @@
       .hero-proof>div{min-height:auto}
     }
 
+
+.proposal-actions{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px
+}
+.proposal-action{
+  min-width:220px;text-align:center;white-space:normal;line-height:1.25;padding:14px 18px
+}
+.proposal-action.decline{
+  color:#ffd7d7;border-color:rgba(255,118,118,.35);background:rgba(255,90,90,.08)
+}
+.proposal-action.printed-only{
+  color:#f0e5d9;border-color:rgba(211,186,160,.32);background:rgba(211,186,160,.08)
+}
+html,body{overflow-x:hidden}
+img,svg,video,canvas{max-width:100%}
+@media(max-width:760px){
+  .shell{width:min(100% - 24px,1180px)}
+  .nav{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:0 0 auto;white-space:nowrap}
+  .hero{padding-top:42px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero h1{font-size:clamp(2.5rem,12vw,4.4rem);line-height:1;letter-spacing:-.055em}
+  .hero-copy>p{font-size:1rem;line-height:1.55}
+  .hero-actions,.proposal-actions{display:grid;grid-template-columns:1fr;width:100%}
+  .hero-actions .btn,.proposal-action{width:100%;min-width:0}
+  .hero-proof{grid-template-columns:1fr;max-width:none}
+  .hero-visual{min-height:500px!important;width:100%}
+  .scene{inset:0!important;transform:none!important}
+  .dashboard{inset:38px 0 70px 0!important;width:auto}
+  .floating{max-width:175px;font-size:.78rem}
+  .f1{left:0!important;top:12px!important}
+  .f2{right:0!important;top:90px!important}
+  .f3{left:4px!important;bottom:16px!important}
+  .f4{right:0!important;bottom:38px!important}
+  section{padding-top:68px;padding-bottom:68px}
+  .grid-3,.process,.price-grid,.premium-materials-grid,.summary-benefits,
+  .investment-grid,.responsibility-grid{grid-template-columns:1fr!important}
+  .premium-material-card.large,.premium-material-card.medium,.premium-material-card.wide{
+    grid-column:auto!important
+  }
+  .premium-material-card.wide{display:block!important}
+  .premium-material-media,.wide .premium-material-media{
+    min-height:260px!important;height:260px!important
+  }
+  .responsive-showcase.responsive-mockups{display:block!important;padding:20px!important}
+  .mockup-stage{min-height:560px!important;margin-top:24px}
+  .device-laptop{width:min(330px,92vw)!important;left:50%!important;transform:translateX(-50%)!important}
+  .device-laptop .mockup-screen{height:205px!important}
+  .device-laptop .mockup-base{width:calc(100% + 26px)!important;margin-left:-13px!important}
+  .device-tablet{width:165px!important;right:0!important;top:235px!important}
+  .device-tablet .mockup-screen{height:220px!important}
+  .device-phone{width:104px!important;left:0!important;right:auto!important;bottom:28px!important}
+  .device-phone .mockup-screen{height:214px!important}
+  .footer-content{text-align:center}
+}
+@media(max-width:430px){
+  .shell{width:min(100% - 18px,1180px)}
+  .brand-copy strong{font-size:.78rem!important}
+  .hero h1{font-size:clamp(2.3rem,11.7vw,3.35rem)}
+  .hero-visual{min-height:465px!important}
+  .premium-material-media,.wide .premium-material-media{
+    min-height:235px!important;height:235px!important
+  }
+  .mockup-stage{min-height:500px!important}
+  .device-laptop{width:min(300px,92vw)!important}
+  .device-laptop .mockup-screen{height:186px!important}
+  .device-tablet{width:145px!important;top:215px!important}
+  .device-tablet .mockup-screen{height:194px!important}
+  .device-phone{width:92px!important}
+  .device-phone .mockup-screen{height:190px!important}
+}
+
 </style>
 </head>
 <body>
@@ -1872,8 +1945,12 @@
             <div><strong>Expansível</strong><span>Novos modelos e recursos podem ser orçados futuramente.</span></div>
           </div>
 
-          <a class="btn btn-primary" href="mailto:contato@exemplo.com?subject=Aceite%20da%20proposta">Aprovar proposta</a>
-          <p class="print-note">Substitua o e-mail e os dados comerciais antes de apresentar à cliente.</p>
+          
+<div class="proposal-actions">
+  <a class="btn btn-primary proposal-action approve" href="https://wa.me/5595991156877?text=Muito%20bom.%20A%20proposta%20est%C3%A1%20aprovada.%20Como%20devemos%20prosseguir%3F" target="_blank" rel="noopener noreferrer">Aprovar proposta</a>
+  <a class="btn proposal-action decline" href="https://wa.me/5595991156877?text=Agradecemos%20pela%20proposta.%20Mas%20por%20enquanto%20vamos%20recusar." target="_blank" rel="noopener noreferrer">Recusar proposta</a>
+  <a class="btn proposal-action printed-only" href="https://wa.me/5595991156877?text=Por%20enquanto%20n%C3%A3o%20temos%20interesse%20na%20proposta%2C%20apenas%20no%20material%20impresso." target="_blank" rel="noopener noreferrer">Seguir apenas com material impresso</a>
+</div>
         </div>
       </div>
     </section>
@@ -1958,5 +2035,519 @@
 
     sections.forEach(section => observer.observe(section));
   </script>
+
+<!-- ===== CAMADA DE INTERAÇÃO E ANIMAÇÃO — GD ADVOCACIA ===== -->
+<style id="gd-interactions">
+  :root{
+    --ease-premium:cubic-bezier(.22,.61,.36,1);
+    --ease-spring:cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* Barra de progresso */
+  #readingProgress{
+    position:fixed;
+    inset:0 auto auto 0;
+    width:0;
+    height:3px;
+    z-index:9999;
+    pointer-events:none;
+    background:linear-gradient(90deg,#7d8cff,#62d8ff,#b99aff);
+    box-shadow:0 0 16px rgba(98,216,255,.55);
+    transition:width .08s linear;
+  }
+
+  /* Estado inicial dos elementos revelados */
+  .reveal-item{
+    opacity:0;
+    transform:translate3d(0,28px,0) scale(.985);
+    transition:
+      opacity .72s var(--ease-premium),
+      transform .72s var(--ease-premium);
+    transition-delay:var(--reveal-delay,0ms);
+  }
+
+  .reveal-item.is-visible{
+    opacity:1;
+    transform:translate3d(0,0,0) scale(1);
+  }
+
+  /* Cards mais vivos */
+  .card,
+  .step,
+  .price-card,
+  .premium-material-card,
+  .summary-benefits > div,
+  .feature-panel,
+  .responsive-showcase{
+    position:relative;
+    overflow:hidden;
+    transform:translateZ(0);
+    transition:
+      transform .28s var(--ease-spring),
+      border-color .28s ease,
+      box-shadow .28s ease,
+      background .28s ease;
+  }
+
+  .card::after,
+  .step::after,
+  .price-card::after,
+  .premium-material-card::after,
+  .summary-benefits > div::after{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    pointer-events:none;
+    opacity:0;
+    transform:translate3d(-38%,0,0) rotate(18deg);
+    background:linear-gradient(
+      90deg,
+      transparent 35%,
+      rgba(255,255,255,.07) 48%,
+      rgba(255,255,255,.13) 52%,
+      transparent 65%
+    );
+    transition:
+      opacity .22s ease,
+      transform .7s var(--ease-premium);
+  }
+
+  .card:hover,
+  .step:hover,
+  .price-card:hover,
+  .premium-material-card:hover,
+  .summary-benefits > div:hover{
+    transform:translate3d(0,-6px,0) scale(1.012);
+    border-color:rgba(126,142,255,.28);
+    box-shadow:0 24px 55px rgba(0,0,0,.24);
+  }
+
+  .card:hover::after,
+  .step:hover::after,
+  .price-card:hover::after,
+  .premium-material-card:hover::after,
+  .summary-benefits > div:hover::after{
+    opacity:1;
+    transform:translate3d(38%,0,0) rotate(18deg);
+  }
+
+  /* Card ativo por clique */
+  .premium-material-card.is-focused,
+  .price-card.is-focused{
+    transform:translate3d(0,-8px,0) scale(1.018);
+    border-color:rgba(185,166,146,.46);
+    box-shadow:
+      0 30px 70px rgba(0,0,0,.34),
+      0 0 0 1px rgba(185,166,146,.10) inset;
+  }
+
+  /* Etapas do funcionamento */
+  .step{
+    cursor:pointer;
+  }
+
+  .step.is-active{
+    border-color:rgba(98,216,255,.35);
+    background:
+      linear-gradient(135deg,rgba(111,124,255,.08),rgba(98,216,255,.04)),
+      rgba(255,255,255,.035);
+  }
+
+  .step.is-active .step-num{
+    transform:scale(1.08);
+    box-shadow:0 0 24px rgba(111,124,255,.25);
+  }
+
+  .step-num{
+    transition:transform .25s var(--ease-spring),box-shadow .25s ease;
+  }
+
+  /* Botões */
+  .btn,
+  .proposal-action{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    transition:
+      transform .22s var(--ease-spring),
+      box-shadow .22s ease,
+      border-color .22s ease,
+      filter .22s ease;
+  }
+
+  .btn:hover,
+  .proposal-action:hover{
+    transform:translateY(-3px);
+  }
+
+  .btn:active,
+  .proposal-action:active{
+    transform:translateY(0) scale(.985);
+  }
+
+  .btn::before,
+  .proposal-action::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    opacity:0;
+    background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.13),transparent 80%);
+    transform:translateX(-120%);
+    transition:transform .55s var(--ease-premium),opacity .2s ease;
+  }
+
+  .btn:hover::before,
+  .proposal-action:hover::before{
+    opacity:1;
+    transform:translateX(120%);
+  }
+
+  .proposal-action.approve{
+    animation:approvePulse 2.8s ease-in-out infinite;
+  }
+
+  @keyframes approvePulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(111,124,255,0)}
+    50%{box-shadow:0 0 0 9px rgba(111,124,255,.07)}
+  }
+
+  /* Ripple no clique */
+  .cta-ripple{
+    position:absolute;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    pointer-events:none;
+    background:rgba(255,255,255,.42);
+    transform:translate(-50%,-50%) scale(0);
+    animation:ripple .65s ease-out forwards;
+  }
+
+  @keyframes ripple{
+    to{
+      opacity:0;
+      transform:translate(-50%,-50%) scale(18);
+    }
+  }
+
+  /* Navegação ativa */
+  .nav a{
+    position:relative;
+    transition:color .22s ease,background .22s ease;
+  }
+
+  .nav a.is-active{
+    color:#fff;
+    background:rgba(111,124,255,.10);
+  }
+
+  .nav a.is-active::after{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:4px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#7d8cff,#62d8ff);
+  }
+
+  /* Indicador flutuante */
+  #sectionHint{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:80;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 13px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:999px;
+    color:#dfe5f7;
+    background:rgba(8,12,28,.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 16px 38px rgba(0,0,0,.22);
+    font-size:.72rem;
+    font-weight:800;
+    opacity:0;
+    transform:translateY(12px);
+    transition:opacity .25s ease,transform .25s ease;
+  }
+
+  #sectionHint.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  #sectionHint span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#62d8ff;
+    box-shadow:0 0 12px rgba(98,216,255,.75);
+  }
+
+  /* Botão voltar ao topo */
+  #backToTop{
+    position:fixed;
+    right:18px;
+    bottom:68px;
+    z-index:80;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:14px;
+    color:#fff;
+    background:rgba(8,12,28,.76);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 14px 35px rgba(0,0,0,.22);
+    cursor:pointer;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(12px);
+    transition:opacity .25s ease,transform .25s ease;
+  }
+
+  #backToTop.is-visible{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+
+  /* Mobile */
+  @media(max-width:760px){
+    .reveal-item{
+      transform:translate3d(0,18px,0);
+    }
+
+    .card:hover,
+    .step:hover,
+    .price-card:hover,
+    .premium-material-card:hover,
+    .summary-benefits > div:hover{
+      transform:none;
+      box-shadow:inherit;
+    }
+
+    .proposal-action.approve{
+      animation:none;
+    }
+
+    #sectionHint{
+      left:12px;
+      right:auto;
+      bottom:12px;
+      max-width:calc(100vw - 72px);
+    }
+
+    #backToTop{
+      right:12px;
+      bottom:12px;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+      animation-duration:.01ms!important;
+      animation-iteration-count:1!important;
+      transition-duration:.01ms!important;
+      scroll-behavior:auto!important;
+    }
+
+    .reveal-item{
+      opacity:1!important;
+      transform:none!important;
+    }
+  }
+</style>
+
+<div id="readingProgress" aria-hidden="true"></div>
+<button id="backToTop" type="button" aria-label="Voltar ao topo">↑</button>
+<div id="sectionHint" aria-live="polite"><span></span><strong>Apresentação</strong></div>
+
+<script id="gd-interactions-script">
+(() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  /* 1. Revelação por rolagem */
+  const revealTargets = document.querySelectorAll([
+    '.section-heading',
+    '.card',
+    '.step',
+    '.feature-panel',
+    '.price-card',
+    '.premium-material-card',
+    '.responsive-showcase',
+    '.summary-benefits > div',
+    '.proposal-actions',
+    '.premium-material-caption'
+  ].join(','));
+
+  revealTargets.forEach((element, index) => {
+    element.classList.add('reveal-item');
+    element.style.setProperty('--reveal-delay', `${Math.min((index % 6) * 70, 350)}ms`);
+  });
+
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealTargets.forEach(element => revealObserver.observe(element));
+  } else {
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+  }
+
+  /* 2. Progresso de leitura e botão de topo */
+  const progress = document.getElementById('readingProgress');
+  const backToTop = document.getElementById('backToTop');
+  const sectionHint = document.getElementById('sectionHint');
+
+  const updateScrollUI = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+    progress.style.width = `${Math.min(ratio * 100, 100)}%`;
+
+    const showControls = window.scrollY > 560;
+    backToTop.classList.toggle('is-visible', showControls);
+    sectionHint.classList.toggle('is-visible', showControls);
+  };
+
+  window.addEventListener('scroll', updateScrollUI, { passive:true });
+  window.addEventListener('resize', updateScrollUI, { passive:true });
+  updateScrollUI();
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top:0,
+      behavior:reducedMotion ? 'auto' : 'smooth'
+    });
+  });
+
+  /* 3. Navegação ativa e indicação da seção */
+  const sections = [...document.querySelectorAll('main section[id], section[id]')];
+  const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+  const hintText = sectionHint.querySelector('strong');
+
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      const id = visible.target.id;
+      const heading =
+        visible.target.querySelector('.eyebrow')?.textContent?.trim() ||
+        visible.target.querySelector('h2')?.textContent?.trim() ||
+        'Apresentação';
+
+      hintText.textContent = heading;
+
+      navLinks.forEach(link => {
+        link.classList.toggle(
+          'is-active',
+          link.getAttribute('href') === `#${id}`
+        );
+      });
+    }, {
+      threshold:[.18,.35,.55],
+      rootMargin:'-18% 0px -58% 0px'
+    });
+
+    sections.forEach(section => sectionObserver.observe(section));
+  }
+
+  /* 4. Etapas interativas */
+  const steps = [...document.querySelectorAll('.step')];
+  steps.forEach(step => {
+    step.addEventListener('click', () => {
+      steps.forEach(item => item.classList.remove('is-active'));
+      step.classList.add('is-active');
+    });
+  });
+
+  /* 5. Cards focáveis por clique */
+  document.querySelectorAll('.premium-material-card,.price-card').forEach(card => {
+    card.setAttribute('tabindex','0');
+
+    const toggleFocus = () => {
+      card.classList.toggle('is-focused');
+    };
+
+    card.addEventListener('click', toggleFocus);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleFocus();
+      }
+    });
+  });
+
+  /* 6. Ripple e feedback dos CTAs */
+  document.querySelectorAll('.btn,.proposal-action').forEach(button => {
+    button.addEventListener('pointerdown', event => {
+      const rect = button.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'cta-ripple';
+      ripple.style.left = `${event.clientX - rect.left}px`;
+      ripple.style.top = `${event.clientY - rect.top}px`;
+      button.appendChild(ripple);
+      window.setTimeout(() => ripple.remove(), 700);
+    });
+  });
+
+  /* 7. Tilt suave apenas em desktop */
+  if (finePointer && !reducedMotion) {
+    document.querySelectorAll('.price-card,.premium-material-card').forEach(card => {
+      let frame = 0;
+      let rx = 0;
+      let ry = 0;
+
+      const render = () => {
+        frame = 0;
+        card.style.transform =
+          `perspective(850px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      };
+
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        ry = x * 2.6;
+        rx = y * -2.2;
+
+        if (!frame) frame = requestAnimationFrame(render);
+      }, { passive:true });
+
+      card.addEventListener('pointerleave', () => {
+        if (frame) cancelAnimationFrame(frame);
+        frame = 0;
+        card.style.transform = '';
+      }, { passive:true });
+    });
+  }
+})();
+</script>
+<!-- ===== FIM DA CAMADA DE INTERAÇÃO ===== -->
+
 </body>
 </html>

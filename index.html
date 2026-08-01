@@ -2353,18 +2353,11 @@ img,svg,video,canvas{max-width:100%}
   }
 
   @media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
-      animation-duration:.01ms!important;
-      animation-iteration-count:1!important;
-      transition-duration:.01ms!important;
-      scroll-behavior:auto!important;
-    }
-
+    html{scroll-behavior:auto!important}
+    .orb,.floating{animation:none!important}
     .reveal-item{
-      opacity:1!important;
       transform:none!important;
+      transition:opacity .25s ease!important;
     }
   }
 </style>
@@ -2548,6 +2541,229 @@ img,svg,video,canvas{max-width:100%}
 })();
 </script>
 <!-- ===== FIM DA CAMADA DE INTERAÇÃO ===== -->
+
+
+<!-- ===== INTERAÇÕES MOBILE VISÍVEIS — V13 ===== -->
+<style id="gd-mobile-motion-v13">
+  /* Entrada inicial claramente perceptível */
+  .hero-copy .eyebrow{
+    animation:gdHeroEnter .65s cubic-bezier(.22,.61,.36,1) .08s both;
+  }
+  .hero-copy h1{
+    animation:gdHeroEnter .82s cubic-bezier(.22,.61,.36,1) .18s both;
+  }
+  .hero-copy > p{
+    animation:gdHeroEnter .82s cubic-bezier(.22,.61,.36,1) .30s both;
+  }
+  .hero-actions{
+    animation:gdHeroEnter .82s cubic-bezier(.22,.61,.36,1) .42s both;
+  }
+  .hero-proof{
+    animation:gdHeroEnter .82s cubic-bezier(.22,.61,.36,1) .54s both;
+  }
+  .hero-visual{
+    animation:gdVisualEnter 1s cubic-bezier(.22,.61,.36,1) .24s both;
+  }
+
+  @keyframes gdHeroEnter{
+    from{opacity:0;transform:translate3d(0,24px,0)}
+    to{opacity:1;transform:translate3d(0,0,0)}
+  }
+
+  @keyframes gdVisualEnter{
+    from{opacity:0;transform:translate3d(0,28px,0) scale(.96)}
+    to{opacity:1;transform:translate3d(0,0,0) scale(1)}
+  }
+
+  /* Movimento de fundo que funciona sem mouse */
+  body::after{
+    animation:gdAmbientGlow 11s ease-in-out infinite alternate;
+  }
+
+  @keyframes gdAmbientGlow{
+    0%{transform:translate3d(-2%,-1%,0) scale(1)}
+    50%{transform:translate3d(2%,1%,0) scale(1.03)}
+    100%{transform:translate3d(0,2%,0) scale(1.01)}
+  }
+
+  /* Corrige a animação dos cards flutuantes para Safari/iPhone */
+  @keyframes floatCard{
+    0%,100%{translate:0 0}
+    50%{translate:0 -12px}
+  }
+
+  /* Feedback por toque */
+  .card,
+  .step,
+  .price-card,
+  .graphic-product-card,
+  .premium-material-card,
+  .proposal-action,
+  .btn{
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+
+  .card:active,
+  .step:active,
+  .price-card:active,
+  .graphic-product-card:active,
+  .premium-material-card:active{
+    transform:scale(.985)!important;
+  }
+
+  /* Material gráfico: toque alterna original/mockup */
+  .graphic-product-card.is-previewing{
+    border-color:rgba(126,142,255,.42);
+    box-shadow:0 26px 70px rgba(0,0,0,.38),0 0 38px rgba(111,124,255,.11);
+  }
+
+  .graphic-product-card.is-previewing .graphic-media .original{
+    opacity:0;
+    transform:scale(.94);
+  }
+
+  .graphic-product-card.is-previewing .graphic-media .mockup{
+    opacity:1;
+    transform:scale(1) rotate(0deg);
+  }
+
+  .graphic-product-card.is-previewing .graphic-media::after{
+    content:"Toque novamente para voltar";
+    color:#fff;
+    background:rgba(111,124,255,.26);
+    border-color:rgba(126,142,255,.34);
+  }
+
+  /* Pulso visível no CTA também no smartphone */
+  .proposal-action.approve{
+    animation:gdMobileCtaPulse 2.5s ease-in-out infinite!important;
+  }
+
+  @keyframes gdMobileCtaPulse{
+    0%,100%{
+      transform:translateY(0);
+      box-shadow:0 14px 34px rgba(111,124,255,.24),0 0 0 0 rgba(111,124,255,0);
+    }
+    50%{
+      transform:translateY(-2px);
+      box-shadow:0 18px 42px rgba(111,124,255,.34),0 0 0 8px rgba(111,124,255,.07);
+    }
+  }
+
+  /* Ícones respirando discretamente */
+  .icon{
+    animation:gdIconFloat 3.2s ease-in-out infinite;
+  }
+
+  .card:nth-child(2n) .icon{animation-delay:-.9s}
+  .card:nth-child(3n) .icon{animation-delay:-1.7s}
+
+  @keyframes gdIconFloat{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-4px) rotate(1.5deg)}
+  }
+
+  /* Linha animada nas etapas tocadas */
+  .step::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:12px;
+    bottom:12px;
+    width:3px;
+    border-radius:999px;
+    background:linear-gradient(#7d8cff,#62d8ff);
+    transform:scaleY(0);
+    opacity:0;
+    transition:transform .28s ease,opacity .28s ease;
+  }
+
+  .step.is-active::before{
+    transform:scaleY(1);
+    opacity:1;
+  }
+
+  @media(max-width:760px){
+    /* Mantém o CTA animado no celular */
+    .proposal-action.approve{
+      animation:gdMobileCtaPulse 2.5s ease-in-out infinite!important;
+    }
+
+    /* Revelação mais clara em telas pequenas */
+    .reveal-item{
+      transform:translate3d(0,32px,0) scale(.97);
+      transition:
+        opacity .72s cubic-bezier(.22,.61,.36,1),
+        transform .72s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .reveal-item.is-visible{
+      transform:translate3d(0,0,0) scale(1);
+    }
+
+    .graphic-media::after{
+      content:"Toque para ver com a identidade GD";
+    }
+
+    .floating{
+      animation-duration:4.6s;
+    }
+
+    .orb{
+      animation-duration:8s;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .hero-copy .eyebrow,
+    .hero-copy h1,
+    .hero-copy > p,
+    .hero-actions,
+    .hero-proof,
+    .hero-visual{
+      animation:gdReducedFade .3s ease both!important;
+    }
+
+    body::after,
+    .icon,
+    .proposal-action.approve{
+      animation:none!important;
+    }
+
+    @keyframes gdReducedFade{
+      from{opacity:0}
+      to{opacity:1}
+    }
+  }
+</style>
+
+<script id="gd-mobile-motion-script-v13">
+(() => {
+  /* O hover não é confiável no iPhone: o toque passa a alternar o mockup. */
+  document.querySelectorAll('.graphic-product-card').forEach(card => {
+    card.addEventListener('click', event => {
+      if (event.target.closest('a,button')) return;
+
+      const wasActive = card.classList.contains('is-previewing');
+      document.querySelectorAll('.graphic-product-card.is-previewing')
+        .forEach(item => item.classList.remove('is-previewing'));
+
+      if (!wasActive) card.classList.add('is-previewing');
+    });
+  });
+
+  /* Microfeedback de toque em cards comuns. */
+  document.querySelectorAll('.card,.step,.price-card,.premium-material-card').forEach(card => {
+    card.addEventListener('pointerdown', () => card.classList.add('is-pressed'));
+    const release = () => card.classList.remove('is-pressed');
+    card.addEventListener('pointerup', release);
+    card.addEventListener('pointercancel', release);
+    card.addEventListener('pointerleave', release);
+  });
+})();
+</script>
+<!-- ===== FIM DAS INTERAÇÕES MOBILE V13 ===== -->
 
 </body>
 </html>

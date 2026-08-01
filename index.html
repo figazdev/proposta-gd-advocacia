@@ -2765,5 +2765,727 @@ img,svg,video,canvas{max-width:100%}
 </script>
 <!-- ===== FIM DAS INTERAÇÕES MOBILE V13 ===== -->
 
+
+<!-- ===== EXPERIÊNCIA PREMIUM V14 ===== -->
+<style id="gd-premium-v14">
+  /* 1. Fundo sofisticado, profundo e sem quadriculado */
+  body{
+    isolation:isolate;
+    background:
+      radial-gradient(ellipse at 14% 8%,rgba(83,96,196,.24),transparent 31%),
+      radial-gradient(ellipse at 88% 14%,rgba(33,150,184,.16),transparent 28%),
+      radial-gradient(ellipse at 50% 92%,rgba(106,66,170,.18),transparent 35%),
+      linear-gradient(145deg,#03050d 0%,#080d1c 38%,#090b17 66%,#03050c 100%)!important;
+    background-attachment:fixed!important;
+  }
+
+  body::before{
+    content:""!important;
+    position:fixed!important;
+    inset:-22%!important;
+    z-index:-3!important;
+    pointer-events:none!important;
+    opacity:.95!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    background:
+      conic-gradient(
+        from 215deg at 70% 24%,
+        transparent 0deg,
+        rgba(91,111,255,.16) 38deg,
+        transparent 92deg,
+        rgba(51,208,230,.10) 146deg,
+        transparent 210deg,
+        rgba(152,94,222,.12) 278deg,
+        transparent 360deg
+      ),
+      radial-gradient(ellipse at 25% 38%,rgba(110,126,255,.18),transparent 34%),
+      radial-gradient(ellipse at 72% 68%,rgba(55,207,190,.10),transparent 30%),
+      linear-gradient(118deg,rgba(255,255,255,.025),transparent 36%,rgba(255,255,255,.015) 64%,transparent);
+    background-size:145% 145%,125% 125%,135% 135%,100% 100%!important;
+    filter:blur(18px) saturate(135%);
+    transform-origin:center;
+    animation:gdBackdropFlow 19s ease-in-out infinite alternate!important;
+  }
+
+  body::after{
+    content:""!important;
+    position:fixed!important;
+    inset:0!important;
+    z-index:-2!important;
+    pointer-events:none!important;
+    opacity:.44!important;
+    background:
+      radial-gradient(circle at var(--mouse-x,72%) var(--mouse-y,18%),rgba(113,131,255,.17),transparent 20%),
+      radial-gradient(circle at 18% 72%,rgba(68,213,255,.08),transparent 23%),
+      repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.018) 0 1px,transparent 1px 5px)!important;
+    background-size:auto,auto,8px 8px!important;
+    mix-blend-mode:screen;
+    animation:gdAtmosphere 13s ease-in-out infinite alternate!important;
+  }
+
+  @keyframes gdBackdropFlow{
+    0%{transform:translate3d(-2%,-1%,0) rotate(-2deg) scale(1)}
+    50%{transform:translate3d(2%,1.5%,0) rotate(1.5deg) scale(1.035)}
+    100%{transform:translate3d(0,-1%,0) rotate(-.5deg) scale(1.018)}
+  }
+
+  @keyframes gdAtmosphere{
+    from{filter:hue-rotate(0deg) brightness(.96)}
+    to{filter:hue-rotate(12deg) brightness(1.08)}
+  }
+
+  section::before{
+    content:"";
+    position:absolute;
+    left:8%;
+    right:8%;
+    top:0;
+    height:1px;
+    pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(126,142,255,.17),rgba(67,215,255,.11),transparent);
+  }
+
+  /* 2. Primeiro painel com hologramas aparecendo, sumindo e se deslocando */
+  .hero-visual{
+    position:relative;
+  }
+
+  .hero-visual::after{
+    content:"";
+    position:absolute;
+    inset:7% 4% 4%;
+    z-index:-1;
+    border-radius:42%;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 50% 48%,rgba(92,118,255,.20),transparent 38%),
+      radial-gradient(circle at 62% 38%,rgba(67,215,255,.12),transparent 31%);
+    filter:blur(34px);
+    animation:gdHeroAura 7s ease-in-out infinite alternate;
+  }
+
+  @keyframes gdHeroAura{
+    from{opacity:.55;transform:scale(.94) rotate(-2deg)}
+    to{opacity:1;transform:scale(1.07) rotate(2deg)}
+  }
+
+  .dashboard{
+    overflow:hidden;
+    border-color:rgba(126,189,255,.20)!important;
+    box-shadow:
+      0 38px 110px rgba(0,0,0,.52),
+      0 0 65px rgba(78,111,255,.12),
+      inset 0 1px 0 rgba(255,255,255,.09)!important;
+  }
+
+  .dashboard::after{
+    content:"";
+    position:absolute;
+    z-index:5;
+    left:-20%;
+    right:-20%;
+    top:-35%;
+    height:42%;
+    pointer-events:none;
+    opacity:.62;
+    background:linear-gradient(180deg,transparent,rgba(89,221,255,.14),transparent);
+    transform:rotate(-6deg);
+    animation:gdScanner 5.6s linear infinite;
+  }
+
+  @keyframes gdScanner{
+    from{translate:0 -120%}
+    to{translate:0 430%}
+  }
+
+  .floating{
+    overflow:hidden;
+    color:#ecfaff;
+    border-color:rgba(106,225,255,.30)!important;
+    background:
+      linear-gradient(135deg,rgba(41,92,142,.20),rgba(19,24,58,.56)),
+      rgba(8,14,30,.58)!important;
+    box-shadow:
+      0 20px 55px rgba(0,0,0,.36),
+      0 0 28px rgba(67,215,255,.13),
+      inset 0 0 22px rgba(103,227,255,.07)!important;
+    backdrop-filter:blur(18px) saturate(150%);
+    -webkit-backdrop-filter:blur(18px) saturate(150%);
+    will-change:transform,opacity,filter;
+  }
+
+  .floating::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.5;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(137,238,255,.055) 0 1px,
+        transparent 1px 5px
+      ),
+      linear-gradient(110deg,transparent 18%,rgba(158,242,255,.12) 47%,transparent 74%);
+    animation:gdHoloTexture 2.8s linear infinite;
+  }
+
+  .floating::after{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:inherit;
+    pointer-events:none;
+    border:1px solid rgba(112,228,255,.20);
+    box-shadow:inset 0 0 18px rgba(76,202,255,.09);
+  }
+
+  .floating strong,
+  .floating span{
+    position:relative;
+    z-index:2;
+  }
+
+  @keyframes gdHoloTexture{
+    from{background-position:0 0,-120% 0}
+    to{background-position:0 15px,220% 0}
+  }
+
+  .floating.f1{animation:gdHologramOne 13s cubic-bezier(.45,.05,.25,1) infinite!important}
+  .floating.f2{animation:gdHologramTwo 13s cubic-bezier(.45,.05,.25,1) -3.2s infinite!important}
+  .floating.f3{animation:gdHologramThree 13s cubic-bezier(.45,.05,.25,1) -6.4s infinite!important}
+  .floating.f4{animation:gdHologramFour 13s cubic-bezier(.45,.05,.25,1) -9.6s infinite!important}
+
+  @keyframes gdHologramOne{
+    0%,7%{opacity:0;transform:translate3d(-34px,22px,95px) scale(.76);filter:blur(6px)}
+    15%,48%{opacity:1;transform:translate3d(0,0,95px) scale(1);filter:blur(0)}
+    58%{opacity:.78;transform:translate3d(22px,-18px,112px) scale(1.04)}
+    72%,100%{opacity:0;transform:translate3d(48px,-42px,80px) scale(.80);filter:blur(5px)}
+  }
+
+  @keyframes gdHologramTwo{
+    0%,8%{opacity:0;transform:translate3d(30px,-28px,110px) scale(.76);filter:blur(6px)}
+    17%,51%{opacity:1;transform:translate3d(0,0,110px) scale(1);filter:blur(0)}
+    61%{opacity:.80;transform:translate3d(-25px,16px,122px) scale(1.035)}
+    76%,100%{opacity:0;transform:translate3d(-45px,38px,88px) scale(.79);filter:blur(5px)}
+  }
+
+  @keyframes gdHologramThree{
+    0%,9%{opacity:0;transform:translate3d(-26px,34px,85px) scale(.78);filter:blur(6px)}
+    18%,52%{opacity:1;transform:translate3d(0,0,85px) scale(1);filter:blur(0)}
+    63%{opacity:.76;transform:translate3d(28px,-14px,102px) scale(1.045)}
+    78%,100%{opacity:0;transform:translate3d(46px,-30px,72px) scale(.80);filter:blur(5px)}
+  }
+
+  @keyframes gdHologramFour{
+    0%,7%{opacity:0;transform:translate3d(34px,26px,100px) scale(.76);filter:blur(6px)}
+    16%,49%{opacity:1;transform:translate3d(0,0,100px) scale(1);filter:blur(0)}
+    60%{opacity:.80;transform:translate3d(-20px,-20px,118px) scale(1.04)}
+    74%,100%{opacity:0;transform:translate3d(-44px,-40px,82px) scale(.79);filter:blur(5px)}
+  }
+
+  /* 3. Títulos revelados palavra por palavra */
+  .kinetic-title{
+    perspective:900px;
+  }
+
+  .kinetic-title .title-word{
+    display:inline-block;
+    opacity:0;
+    margin-right:.24em;
+    transform:translate3d(0,34px,0) rotateX(68deg);
+    transform-origin:50% 100%;
+    filter:blur(7px);
+    transition:
+      opacity .66s cubic-bezier(.22,.61,.36,1),
+      transform .78s cubic-bezier(.16,1,.3,1),
+      filter .66s ease,
+      color .35s ease;
+    transition-delay:calc(var(--word-index) * 54ms);
+  }
+
+  .kinetic-title.title-visible .title-word{
+    opacity:1;
+    transform:translate3d(0,0,0) rotateX(0);
+    filter:blur(0);
+  }
+
+  .kinetic-title.title-visible .title-word:nth-child(3n){
+    color:#cdd5ff;
+  }
+
+  .kinetic-title::after{
+    content:"";
+    display:block;
+    width:min(170px,42%);
+    height:3px;
+    margin-top:18px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#7d8cff,#62d8ff,transparent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .9s cubic-bezier(.16,1,.3,1) .28s;
+  }
+
+  .kinetic-title.title-visible::after{
+    transform:scaleX(1);
+  }
+
+  /* 4. Checkboxes animados */
+  .check{
+    position:relative;
+    opacity:.28;
+    transform:translate3d(18px,0,0);
+    transition:
+      opacity .5s ease,
+      transform .62s cubic-bezier(.16,1,.3,1);
+    transition-delay:calc(var(--check-index) * 95ms);
+  }
+
+  .check-list.checks-live .check{
+    opacity:1;
+    transform:translate3d(0,0,0);
+  }
+
+  .check i{
+    position:relative;
+    overflow:visible;
+    transform:scale(.25) rotate(-70deg);
+    opacity:0;
+    color:#b8fff0!important;
+    box-shadow:0 0 0 0 rgba(78,227,194,0);
+    transition:
+      transform .58s cubic-bezier(.34,1.56,.64,1),
+      opacity .32s ease,
+      box-shadow .6s ease;
+    transition-delay:calc(120ms + var(--check-index) * 95ms);
+  }
+
+  .check i::after{
+    content:"";
+    position:absolute;
+    inset:-7px;
+    border-radius:50%;
+    border:1px solid rgba(78,227,194,.40);
+    opacity:0;
+    transform:scale(.42);
+    transition:
+      opacity .42s ease,
+      transform .62s cubic-bezier(.16,1,.3,1);
+    transition-delay:calc(150ms + var(--check-index) * 95ms);
+  }
+
+  .check-list.checks-live .check i{
+    opacity:1;
+    transform:scale(1) rotate(0);
+    box-shadow:0 0 22px rgba(78,227,194,.24);
+  }
+
+  .check-list.checks-live .check i::after{
+    opacity:1;
+    transform:scale(1);
+    animation:gdCheckRing 1.8s ease-out 1;
+  }
+
+  @keyframes gdCheckRing{
+    0%{opacity:.9;transform:scale(.55)}
+    70%{opacity:.22;transform:scale(1.48)}
+    100%{opacity:0;transform:scale(1.7)}
+  }
+
+  /* 5. Dispositivos alternando protagonismo e orbitando */
+  .responsive-showcase.responsive-mockups{
+    position:relative;
+    border-color:rgba(104,162,255,.18);
+    background:
+      radial-gradient(circle at 76% 35%,rgba(67,215,255,.11),transparent 27%),
+      radial-gradient(circle at 48% 85%,rgba(132,93,255,.10),transparent 31%),
+      linear-gradient(145deg,rgba(14,23,48,.91),rgba(6,10,25,.94))!important;
+  }
+
+  .mockup-stage{
+    isolation:isolate;
+  }
+
+  .mockup-stage::before{
+    content:"";
+    position:absolute;
+    inset:12% 2% 4%;
+    z-index:-1;
+    border-radius:50%;
+    border:1px solid rgba(111,166,255,.16);
+    box-shadow:
+      0 0 65px rgba(67,215,255,.08),
+      inset 0 0 55px rgba(111,124,255,.055);
+    transform:rotate(-9deg);
+    animation:gdOrbitRing 9s linear infinite;
+  }
+
+  .mockup-stage::after{
+    content:"";
+    position:absolute;
+    width:11px;
+    height:11px;
+    left:16%;
+    top:17%;
+    z-index:-1;
+    border-radius:50%;
+    background:#79e4ff;
+    box-shadow:0 0 22px #79e4ff;
+    animation:gdOrbitDot 9s ease-in-out infinite alternate;
+  }
+
+  @keyframes gdOrbitRing{
+    to{transform:rotate(351deg)}
+  }
+
+  @keyframes gdOrbitDot{
+    from{translate:0 0;opacity:.35}
+    to{translate:360px 290px;opacity:1}
+  }
+
+  .responsive-mockups .device-mockup{
+    will-change:transform,filter,opacity;
+    transform-origin:center;
+  }
+
+  .responsive-mockups .device-laptop{
+    --device-base:rotateY(7deg) rotateX(2deg);
+    animation:gdLaptopOrbit 12s cubic-bezier(.45,.05,.25,1) infinite!important;
+  }
+
+  .responsive-mockups .device-tablet{
+    --device-base:rotateY(-10deg) rotateZ(2deg);
+    animation:gdTabletOrbit 12s cubic-bezier(.45,.05,.25,1) infinite!important;
+  }
+
+  .responsive-mockups .device-phone{
+    --device-base:rotateZ(-5deg);
+    animation:gdPhoneOrbit 12s cubic-bezier(.45,.05,.25,1) infinite!important;
+  }
+
+  @keyframes gdLaptopOrbit{
+    0%,27%{
+      transform:var(--device-base) translate3d(0,0,0) scale(1);
+      filter:brightness(1.06) drop-shadow(0 25px 25px rgba(73,123,255,.20));
+      opacity:1;
+    }
+    36%,61%{
+      transform:var(--device-base) translate3d(-18px,25px,0) scale(.88);
+      filter:brightness(.72) saturate(.75);
+      opacity:.70;
+    }
+    70%,91%{
+      transform:var(--device-base) translate3d(18px,12px,0) scale(.92);
+      filter:brightness(.82) saturate(.82);
+      opacity:.80;
+    }
+    100%{
+      transform:var(--device-base) translate3d(0,0,0) scale(1);
+      filter:brightness(1.06);
+      opacity:1;
+    }
+  }
+
+  @keyframes gdTabletOrbit{
+    0%,27%{
+      transform:var(--device-base) translate3d(22px,10px,0) scale(.82);
+      filter:brightness(.73) saturate(.76);
+      opacity:.70;
+    }
+    36%,61%{
+      transform:var(--device-base) translate3d(-78px,66px,0) scale(1.08);
+      filter:brightness(1.08) drop-shadow(0 24px 24px rgba(67,215,255,.24));
+      opacity:1;
+    }
+    70%,91%{
+      transform:var(--device-base) translate3d(14px,42px,0) scale(.84);
+      filter:brightness(.74) saturate(.76);
+      opacity:.72;
+    }
+    100%{
+      transform:var(--device-base) translate3d(22px,10px,0) scale(.82);
+      filter:brightness(.73);
+      opacity:.70;
+    }
+  }
+
+  @keyframes gdPhoneOrbit{
+    0%,27%{
+      transform:var(--device-base) translate3d(10px,20px,0) scale(.83);
+      filter:brightness(.76) saturate(.78);
+      opacity:.72;
+    }
+    36%,61%{
+      transform:var(--device-base) translate3d(34px,-6px,0) scale(.86);
+      filter:brightness(.80) saturate(.80);
+      opacity:.76;
+    }
+    70%,91%{
+      transform:var(--device-base) translate3d(-98px,-132px,0) scale(1.22);
+      filter:brightness(1.10) drop-shadow(0 24px 24px rgba(150,103,255,.25));
+      opacity:1;
+    }
+    100%{
+      transform:var(--device-base) translate3d(10px,20px,0) scale(.83);
+      filter:brightness(.76);
+      opacity:.72;
+    }
+  }
+
+  .mockup-stage:hover .device-mockup{
+    animation-play-state:paused!important;
+  }
+
+  /* 6. Menor preço dos impressos em verde */
+  .premium-price.best-price{
+    border-color:rgba(75,224,166,.38)!important;
+    background:
+      radial-gradient(circle at 85% 10%,rgba(75,224,166,.18),transparent 38%),
+      linear-gradient(135deg,rgba(35,116,86,.20),rgba(20,56,48,.14))!important;
+    box-shadow:
+      inset 0 0 24px rgba(75,224,166,.055),
+      0 10px 26px rgba(0,0,0,.16);
+  }
+
+  .premium-price.best-price strong{
+    color:#62e6ad!important;
+    text-shadow:0 0 20px rgba(74,225,167,.20);
+  }
+
+  .premium-price.best-price::before{
+    content:"Melhor valor";
+    display:block;
+    width:max-content;
+    margin-bottom:5px;
+    padding:3px 7px;
+    border-radius:999px;
+    color:#9bffd1;
+    background:rgba(75,224,166,.10);
+    border:1px solid rgba(75,224,166,.22);
+    font-size:.59rem;
+    font-weight:900;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+
+  /* Smartphone */
+  @media(max-width:760px){
+    body::before{
+      filter:blur(26px) saturate(125%);
+    }
+
+    .floating{
+      min-width:145px;
+      max-width:168px;
+    }
+
+    .floating.f1{animation-duration:11s!important}
+    .floating.f2{animation-duration:11s!important}
+    .floating.f3{animation-duration:11s!important}
+    .floating.f4{animation-duration:11s!important}
+
+    .kinetic-title .title-word{
+      transform:translate3d(0,24px,0) rotateX(58deg);
+      transition-delay:calc(var(--word-index) * 36ms);
+    }
+
+    .responsive-mockups .device-laptop{
+      --device-base:translateX(-50%);
+    }
+
+    .responsive-mockups .device-tablet{
+      --device-base:rotateY(-7deg) rotateZ(2deg);
+    }
+
+    .responsive-mockups .device-phone{
+      --device-base:rotateZ(-4deg);
+    }
+
+    @keyframes gdLaptopOrbit{
+      0%,27%{
+        transform:var(--device-base) translate3d(0,0,0) scale(1);
+        filter:brightness(1.05);
+        opacity:1;
+      }
+      36%,61%{
+        transform:var(--device-base) translate3d(-6px,14px,0) scale(.91);
+        filter:brightness(.73);
+        opacity:.70;
+      }
+      70%,91%{
+        transform:var(--device-base) translate3d(7px,8px,0) scale(.94);
+        filter:brightness(.82);
+        opacity:.80;
+      }
+      100%{
+        transform:var(--device-base) translate3d(0,0,0) scale(1);
+        filter:brightness(1.05);
+        opacity:1;
+      }
+    }
+
+    @keyframes gdTabletOrbit{
+      0%,27%{
+        transform:var(--device-base) translate3d(0,8px,0) scale(.82);
+        filter:brightness(.72);
+        opacity:.68;
+      }
+      36%,61%{
+        transform:var(--device-base) translate3d(-55px,22px,0) scale(1.04);
+        filter:brightness(1.08);
+        opacity:1;
+      }
+      70%,91%{
+        transform:var(--device-base) translate3d(4px,18px,0) scale(.83);
+        filter:brightness(.73);
+        opacity:.70;
+      }
+      100%{
+        transform:var(--device-base) translate3d(0,8px,0) scale(.82);
+        filter:brightness(.72);
+        opacity:.68;
+      }
+    }
+
+    @keyframes gdPhoneOrbit{
+      0%,27%{
+        transform:var(--device-base) translate3d(2px,7px,0) scale(.84);
+        filter:brightness(.74);
+        opacity:.70;
+      }
+      36%,61%{
+        transform:var(--device-base) translate3d(12px,0,0) scale(.88);
+        filter:brightness(.80);
+        opacity:.76;
+      }
+      70%,91%{
+        transform:var(--device-base) translate3d(42px,-78px,0) scale(1.18);
+        filter:brightness(1.08);
+        opacity:1;
+      }
+      100%{
+        transform:var(--device-base) translate3d(2px,7px,0) scale(.84);
+        filter:brightness(.74);
+        opacity:.70;
+      }
+    }
+
+    @keyframes gdOrbitDot{
+      from{translate:0 0;opacity:.35}
+      to{translate:210px 300px;opacity:1}
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    body::before,
+    body::after,
+    .dashboard::after,
+    .hero-visual::after,
+    .floating,
+    .responsive-mockups .device-mockup,
+    .mockup-stage::before,
+    .mockup-stage::after{
+      animation-duration:20s!important;
+    }
+
+    .kinetic-title .title-word,
+    .check,
+    .check i{
+      transition-duration:.25s!important;
+    }
+  }
+</style>
+
+<script id="gd-premium-script-v14">
+(() => {
+  /* Divide os títulos em palavras para criar uma leitura guiada. */
+  const titleSelector = [
+    '.section-heading h2',
+    '.responsive-copy h2',
+    '.feature-panel h2',
+    '.summary-cta h2'
+  ].join(',');
+
+  const titles = [...document.querySelectorAll(titleSelector)];
+
+  titles.forEach(title => {
+    if (title.dataset.kineticReady === 'true') return;
+
+    const original = title.textContent.trim();
+    if (!original) return;
+
+    title.dataset.kineticReady = 'true';
+    title.setAttribute('aria-label', original);
+    title.classList.add('kinetic-title');
+
+    const words = original.split(/\s+/);
+    title.innerHTML = words.map((word,index) =>
+      `<span class="title-word" aria-hidden="true" style="--word-index:${index}">${word}</span>`
+    ).join(' ');
+  });
+
+  const titleObserver = 'IntersectionObserver' in window
+    ? new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('title-visible');
+            titleObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold:.25, rootMargin:'0px 0px -12% 0px' })
+    : null;
+
+  titles.forEach(title => {
+    if (titleObserver) titleObserver.observe(title);
+    else title.classList.add('title-visible');
+  });
+
+  /* Anima individualmente os itens marcados. */
+  document.querySelectorAll('.check-list').forEach(list => {
+    [...list.querySelectorAll('.check')].forEach((item,index) => {
+      item.style.setProperty('--check-index',index);
+      const icon = item.querySelector('i');
+      if (icon) icon.style.setProperty('--check-index',index);
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            list.classList.add('checks-live');
+            observer.disconnect();
+          }
+        });
+      }, { threshold:.35 });
+      observer.observe(list);
+    } else {
+      list.classList.add('checks-live');
+    }
+  });
+
+  /* Destaca automaticamente o menor preço de cada item impresso. */
+  document.querySelectorAll('.premium-material-prices').forEach(group => {
+    const priceCards = [...group.querySelectorAll('.premium-price')];
+    const parsed = priceCards.map(card => {
+      const raw = card.querySelector('strong')?.textContent || '';
+      const numeric = Number(
+        raw.replace(/[^\d,]/g,'').replace(/\./g,'').replace(',','.')
+      );
+      return { card, numeric };
+    }).filter(item => Number.isFinite(item.numeric));
+
+    if (!parsed.length) return;
+    const minimum = Math.min(...parsed.map(item => item.numeric));
+
+    parsed.forEach(item => {
+      item.card.classList.toggle('best-price',item.numeric === minimum);
+    });
+  });
+})();
+</script>
+<!-- ===== FIM DA EXPERIÊNCIA PREMIUM V14 ===== -->
+
 </body>
 </html>

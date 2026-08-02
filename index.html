@@ -1697,11 +1697,6 @@ img,svg,video,canvas{max-width:100%}
             rápido, seguro e consistente — do formulário ao PDF final.
           </p>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#investimento">Conhecer investimento</a>
-            <a class="btn btn-secondary" href="#funcionamento">Ver como funciona</a>
-          </div>
-
           <div class="hero-proof">
             <div><strong>Até 6</strong><span>modelos configurados</span></div>
             <div><strong>PDF</strong><span>padronizado em segundos</span></div>
@@ -3486,6 +3481,737 @@ img,svg,video,canvas{max-width:100%}
 })();
 </script>
 <!-- ===== FIM DA EXPERIÊNCIA PREMIUM V14 ===== -->
+
+
+<!-- ===== IDENTIDADE HOLOGRÁFICA INTERATIVA V15 ===== -->
+<style id="gd-holographic-v15">
+  :root{
+    --neon-blue:#25c7ff;
+    --neon-cyan:#61efff;
+    --neon-purple:#9768ff;
+    --neon-green:#36df8d;
+    --deep-navy:#020611;
+  }
+
+  /* Identidade geral mais próxima da referência */
+  body{
+    background:
+      radial-gradient(ellipse at 76% 6%,rgba(32,132,255,.20),transparent 30%),
+      radial-gradient(ellipse at 18% 28%,rgba(139,77,255,.16),transparent 31%),
+      radial-gradient(ellipse at 62% 76%,rgba(23,204,227,.10),transparent 28%),
+      linear-gradient(150deg,#02040b 0%,#050a18 43%,#030610 100%)!important;
+  }
+
+  body::before{
+    content:""!important;
+    position:fixed!important;
+    inset:0!important;
+    pointer-events:none!important;
+    z-index:-3!important;
+    opacity:.7!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    background:
+      radial-gradient(circle at 11% 20%,rgba(56,198,255,.32) 0 1px,transparent 2px),
+      radial-gradient(circle at 72% 38%,rgba(148,104,255,.28) 0 1px,transparent 2px),
+      radial-gradient(circle at 42% 72%,rgba(54,223,141,.18) 0 1px,transparent 2px);
+    background-size:95px 95px,123px 123px,151px 151px!important;
+    animation:gdParticleDrift 24s linear infinite!important;
+  }
+
+  body::after{
+    content:""!important;
+    display:block!important;
+    position:fixed!important;
+    inset:-18%!important;
+    pointer-events:none!important;
+    z-index:-2!important;
+    opacity:.46!important;
+    background:
+      conic-gradient(from 225deg at 68% 25%,transparent,rgba(36,180,255,.12),transparent 24%,rgba(142,91,255,.10),transparent 55%),
+      radial-gradient(ellipse at 20% 68%,rgba(26,160,255,.11),transparent 35%)!important;
+    filter:blur(28px);
+    animation:gdAuroraFlow 16s ease-in-out infinite alternate!important;
+  }
+
+  @keyframes gdParticleDrift{
+    to{background-position:95px 190px,-123px 246px,151px -302px}
+  }
+
+  @keyframes gdAuroraFlow{
+    from{transform:translate3d(-2%,-1%,0) rotate(-2deg) scale(1)}
+    to{transform:translate3d(3%,2%,0) rotate(2deg) scale(1.07)}
+  }
+
+  .topbar-inner,
+  .card,
+  .step,
+  .feature-panel,
+  .price-card,
+  .premium-material-card,
+  .responsive-showcase,
+  .cta{
+    border-color:rgba(70,177,255,.20)!important;
+    background:
+      radial-gradient(circle at 82% 12%,rgba(39,197,255,.07),transparent 28%),
+      linear-gradient(145deg,rgba(8,18,42,.93),rgba(3,8,22,.94))!important;
+    box-shadow:
+      0 26px 75px rgba(0,0,0,.35),
+      inset 0 1px 0 rgba(255,255,255,.045),
+      0 0 34px rgba(38,142,255,.035)!important;
+  }
+
+  .eyebrow{
+    color:#c4b8ff!important;
+    border-color:rgba(151,104,255,.38)!important;
+    background:rgba(116,65,224,.13)!important;
+    box-shadow:0 0 25px rgba(139,88,255,.10)!important;
+  }
+
+  .gradient-text,
+  .price{
+    background:linear-gradient(92deg,#fff 0%,var(--neon-blue) 34%,var(--neon-purple) 72%,#d7b6ff 100%)!important;
+    -webkit-background-clip:text!important;
+    background-clip:text!important;
+    color:transparent!important;
+  }
+
+  .icon,
+  .step-num{
+    color:#d8f8ff!important;
+    border-color:rgba(54,209,255,.25)!important;
+    background:
+      radial-gradient(circle at 35% 25%,rgba(63,224,255,.28),transparent 46%),
+      linear-gradient(135deg,rgba(36,135,255,.25),rgba(131,75,255,.21))!important;
+    box-shadow:0 0 28px rgba(45,184,255,.16)!important;
+  }
+
+  /* Hero: mão animada, toque e cards holográficos */
+  .hero-visual{
+    isolation:isolate;
+    overflow:visible!important;
+  }
+
+  .scene{
+    z-index:2;
+  }
+
+  .dashboard{
+    border-color:rgba(40,210,255,.34)!important;
+    background:
+      linear-gradient(145deg,rgba(4,25,54,.94),rgba(4,9,28,.92))!important;
+    box-shadow:
+      0 38px 100px rgba(0,0,0,.52),
+      0 0 70px rgba(29,151,255,.16),
+      inset 0 0 30px rgba(32,213,255,.045)!important;
+  }
+
+  .dashboard::after{
+    content:"";
+    position:absolute;
+    left:-12%;
+    right:-12%;
+    top:-30%;
+    height:34%;
+    z-index:8;
+    pointer-events:none;
+    background:linear-gradient(180deg,transparent,rgba(78,232,255,.17),transparent);
+    transform:rotate(-5deg);
+    animation:gdScreenScan 4.8s linear infinite;
+  }
+
+  @keyframes gdScreenScan{
+    from{translate:0 -120%}
+    to{translate:0 480%}
+  }
+
+  .floating{
+    border-color:rgba(59,218,255,.35)!important;
+    background:
+      linear-gradient(135deg,rgba(16,72,126,.24),rgba(19,14,63,.56)),
+      rgba(2,12,28,.72)!important;
+    box-shadow:
+      0 20px 48px rgba(0,0,0,.40),
+      0 0 28px rgba(39,197,255,.15),
+      inset 0 0 20px rgba(96,238,255,.06)!important;
+  }
+
+  .floating::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    border-radius:inherit;
+    background:
+      repeating-linear-gradient(180deg,rgba(110,239,255,.045) 0 1px,transparent 1px 5px),
+      linear-gradient(110deg,transparent 20%,rgba(108,237,255,.12),transparent 78%);
+    background-position:0 0,-120% 0;
+    animation:gdHoloSweep 2.9s linear infinite;
+  }
+
+  @keyframes gdHoloSweep{
+    to{background-position:0 18px,220% 0}
+  }
+
+  .touch-hand{
+    position:absolute;
+    z-index:20;
+    width:255px;
+    height:310px;
+    right:-54px;
+    bottom:-26px;
+    pointer-events:none;
+    opacity:0;
+    transform-origin:70% 88%;
+    filter:
+      drop-shadow(0 18px 25px rgba(0,0,0,.46))
+      drop-shadow(0 0 18px rgba(40,204,255,.20));
+    transition:opacity .45s ease;
+  }
+
+  .hero-visual.is-hand-active .touch-hand{
+    opacity:1;
+  }
+
+  .touch-hand svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
+  }
+
+  .touch-hand .skin{
+    fill:url(#handSkinGradient);
+    stroke:rgba(198,232,255,.55);
+    stroke-width:1.1;
+  }
+
+  .touch-hand .finger-highlight{
+    fill:none;
+    stroke:rgba(203,246,255,.42);
+    stroke-width:3;
+    stroke-linecap:round;
+  }
+
+  .touch-hand .touch-point{
+    fill:none;
+    stroke:var(--neon-cyan);
+    stroke-width:2;
+    transform-origin:center;
+    animation:gdTouchPulse 1.15s ease-out infinite;
+  }
+
+  .touch-hand .touch-core{
+    fill:#d9fbff;
+    filter:drop-shadow(0 0 8px var(--neon-cyan));
+    animation:gdTouchCore 1.15s ease-in-out infinite;
+  }
+
+  @keyframes gdTouchPulse{
+    0%{opacity:0;transform:scale(.35)}
+    32%{opacity:1}
+    100%{opacity:0;transform:scale(2.1)}
+  }
+
+  @keyframes gdTouchCore{
+    0%,100%{opacity:.55;transform:scale(.75)}
+    50%{opacity:1;transform:scale(1.2)}
+  }
+
+  .touch-hand.hand-step-0{animation:gdHandTouchOne 2.7s ease-in-out both}
+  .touch-hand.hand-step-1{animation:gdHandTouchTwo 2.7s ease-in-out both}
+  .touch-hand.hand-step-2{animation:gdHandTouchThree 2.7s ease-in-out both}
+  .touch-hand.hand-step-3{animation:gdHandTouchFour 2.7s ease-in-out both}
+
+  @keyframes gdHandTouchOne{
+    0%{transform:translate3d(66px,55px,0) rotate(7deg);opacity:0}
+    24%,68%{transform:translate3d(-175px,-212px,0) rotate(-10deg);opacity:1}
+    48%{transform:translate3d(-185px,-222px,0) rotate(-11deg) scale(.97)}
+    100%{transform:translate3d(-145px,-180px,0) rotate(-7deg);opacity:0}
+  }
+
+  @keyframes gdHandTouchTwo{
+    0%{transform:translate3d(70px,50px,0) rotate(8deg);opacity:0}
+    24%,68%{transform:translate3d(-15px,-160px,0) rotate(-4deg);opacity:1}
+    48%{transform:translate3d(-23px,-170px,0) rotate(-5deg) scale(.97)}
+    100%{transform:translate3d(15px,-125px,0) rotate(0);opacity:0}
+  }
+
+  @keyframes gdHandTouchThree{
+    0%{transform:translate3d(68px,48px,0) rotate(8deg);opacity:0}
+    24%,68%{transform:translate3d(-170px,-12px,0) rotate(-12deg);opacity:1}
+    48%{transform:translate3d(-178px,-20px,0) rotate(-13deg) scale(.97)}
+    100%{transform:translate3d(-135px,18px,0) rotate(-8deg);opacity:0}
+  }
+
+  @keyframes gdHandTouchFour{
+    0%{transform:translate3d(68px,48px,0) rotate(8deg);opacity:0}
+    24%,68%{transform:translate3d(-8px,-20px,0) rotate(-2deg);opacity:1}
+    48%{transform:translate3d(-16px,-28px,0) rotate(-3deg) scale(.97)}
+    100%{transform:translate3d(20px,10px,0) rotate(2deg);opacity:0}
+  }
+
+  .floating.hand-target{
+    animation:gdTargetReact .8s cubic-bezier(.2,.8,.2,1) both!important;
+  }
+
+  @keyframes gdTargetReact{
+    0%,100%{filter:brightness(1);scale:1}
+    42%{
+      filter:brightness(1.35);
+      scale:1.07;
+      box-shadow:
+        0 22px 55px rgba(0,0,0,.40),
+        0 0 42px rgba(67,215,255,.36),
+        inset 0 0 28px rgba(97,239,255,.13);
+    }
+  }
+
+  /* Seção responsiva: mão robótica e dispositivos sobre a palma */
+  .responsive-showcase.responsive-mockups{
+    position:relative;
+    overflow:hidden!important;
+    background:
+      radial-gradient(circle at 68% 45%,rgba(42,196,255,.13),transparent 30%),
+      radial-gradient(circle at 80% 76%,rgba(139,79,255,.14),transparent 34%),
+      linear-gradient(145deg,rgba(4,18,43,.95),rgba(3,7,21,.97))!important;
+  }
+
+  .mockup-stage{
+    position:relative;
+    isolation:isolate;
+    min-height:580px!important;
+  }
+
+  .robot-palm{
+    position:absolute;
+    z-index:0;
+    width:650px;
+    height:410px;
+    right:-125px;
+    bottom:-75px;
+    pointer-events:none;
+    opacity:0;
+    transform:translate3d(80px,80px,0) rotate(-7deg);
+    transition:
+      opacity .8s ease,
+      transform 1.1s cubic-bezier(.16,1,.3,1);
+    filter:
+      drop-shadow(0 30px 40px rgba(0,0,0,.50))
+      drop-shadow(0 0 35px rgba(68,202,255,.20));
+  }
+
+  .responsive-showcase.robot-live .robot-palm{
+    opacity:1;
+    transform:translate3d(0,0,0) rotate(-3deg);
+  }
+
+  .robot-palm svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
+  }
+
+  .robot-palm .metal{
+    fill:url(#robotMetal);
+    stroke:rgba(124,215,255,.53);
+    stroke-width:1.3;
+  }
+
+  .robot-palm .joint{
+    fill:#101c34;
+    stroke:rgba(118,213,255,.50);
+    stroke-width:1.4;
+  }
+
+  .robot-palm .circuit{
+    fill:none;
+    stroke:rgba(86,224,255,.53);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-dasharray:7 8;
+    animation:gdCircuitFlow 2.2s linear infinite;
+  }
+
+  @keyframes gdCircuitFlow{
+    to{stroke-dashoffset:-30}
+  }
+
+  .robot-palm .palm-glow{
+    fill:url(#palmGlow);
+    animation:gdPalmGlow 2.8s ease-in-out infinite;
+  }
+
+  @keyframes gdPalmGlow{
+    0%,100%{opacity:.42}
+    50%{opacity:.95}
+  }
+
+  .responsive-mockups .device-mockup{
+    z-index:3!important;
+    will-change:transform,opacity,filter;
+  }
+
+  .responsive-showcase.robot-live .device-laptop{
+    animation:gdDeviceLaptop 7.5s ease-in-out infinite!important;
+  }
+
+  .responsive-showcase.robot-live .device-tablet{
+    animation:gdDeviceTablet 7s ease-in-out -1.8s infinite!important;
+  }
+
+  .responsive-showcase.robot-live .device-phone{
+    animation:gdDevicePhone 6.4s ease-in-out -3.2s infinite!important;
+  }
+
+  @keyframes gdDeviceLaptop{
+    0%,100%{translate:0 0;rotate:0deg;filter:brightness(.96)}
+    50%{translate:0 -22px;rotate:-1.2deg;filter:brightness(1.12) drop-shadow(0 20px 25px rgba(42,178,255,.25))}
+  }
+
+  @keyframes gdDeviceTablet{
+    0%,100%{translate:0 0;rotate:0deg;filter:brightness(.94)}
+    50%{translate:10px -27px;rotate:2.2deg;filter:brightness(1.12) drop-shadow(0 20px 24px rgba(139,89,255,.24))}
+  }
+
+  @keyframes gdDevicePhone{
+    0%,100%{translate:0 0;rotate:0deg;filter:brightness(.94)}
+    50%{translate:-7px -32px;rotate:-2.5deg;filter:brightness(1.16) drop-shadow(0 18px 22px rgba(53,221,211,.24))}
+  }
+
+  .mockup-stage::before{
+    content:"";
+    position:absolute;
+    z-index:1;
+    width:440px;
+    height:180px;
+    right:0;
+    bottom:105px;
+    border-radius:50%;
+    border:1px solid rgba(65,213,255,.25);
+    box-shadow:
+      0 0 48px rgba(46,185,255,.12),
+      inset 0 0 38px rgba(144,81,255,.08);
+    transform:rotate(-8deg);
+    animation:gdOrbitDisc 8s linear infinite;
+  }
+
+  .mockup-stage::after{
+    content:"";
+    position:absolute;
+    z-index:1;
+    width:12px;
+    height:12px;
+    right:380px;
+    bottom:215px;
+    border-radius:50%;
+    background:#7aeaff;
+    box-shadow:0 0 19px #7aeaff;
+    animation:gdOrbitLight 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes gdOrbitDisc{
+    to{transform:rotate(352deg)}
+  }
+
+  @keyframes gdOrbitLight{
+    from{translate:0 0;opacity:.38}
+    to{translate:300px 95px;opacity:1}
+  }
+
+  /* Elementos reagem à rolagem */
+  .scroll-reactive{
+    --scroll-lift:0px;
+    transform:translate3d(0,var(--scroll-lift),0);
+  }
+
+  .section-heading,
+  .responsive-copy,
+  .price-card,
+  .premium-material-card{
+    transition:
+      transform .4s cubic-bezier(.2,.7,.2,1),
+      opacity .45s ease,
+      filter .45s ease;
+  }
+
+  .scroll-dormant{
+    opacity:.35;
+    transform:translate3d(0,34px,0) scale(.97);
+    filter:blur(5px);
+  }
+
+  .scroll-awake{
+    opacity:1;
+    transform:translate3d(0,0,0) scale(1);
+    filter:blur(0);
+  }
+
+  /* Mobile */
+  @media(max-width:760px){
+    .touch-hand{
+      width:195px;
+      height:245px;
+      right:-46px;
+      bottom:-4px;
+    }
+
+    .hero-visual{
+      min-height:570px!important;
+    }
+
+    @keyframes gdHandTouchOne{
+      0%{transform:translate3d(45px,45px,0) rotate(7deg);opacity:0}
+      24%,68%{transform:translate3d(-104px,-260px,0) rotate(-10deg);opacity:1}
+      48%{transform:translate3d(-112px,-268px,0) rotate(-11deg) scale(.97)}
+      100%{transform:translate3d(-84px,-230px,0) rotate(-7deg);opacity:0}
+    }
+
+    @keyframes gdHandTouchTwo{
+      0%{transform:translate3d(45px,42px,0) rotate(7deg);opacity:0}
+      24%,68%{transform:translate3d(-8px,-180px,0) rotate(-3deg);opacity:1}
+      48%{transform:translate3d(-15px,-187px,0) rotate(-4deg) scale(.97)}
+      100%{transform:translate3d(12px,-150px,0) rotate(0);opacity:0}
+    }
+
+    @keyframes gdHandTouchThree{
+      0%{transform:translate3d(45px,40px,0) rotate(7deg);opacity:0}
+      24%,68%{transform:translate3d(-106px,-34px,0) rotate(-11deg);opacity:1}
+      48%{transform:translate3d(-113px,-42px,0) rotate(-12deg) scale(.97)}
+      100%{transform:translate3d(-82px,-8px,0) rotate(-8deg);opacity:0}
+    }
+
+    @keyframes gdHandTouchFour{
+      0%{transform:translate3d(45px,40px,0) rotate(7deg);opacity:0}
+      24%,68%{transform:translate3d(-5px,-28px,0) rotate(-2deg);opacity:1}
+      48%{transform:translate3d(-12px,-36px,0) rotate(-3deg) scale(.97)}
+      100%{transform:translate3d(16px,-5px,0) rotate(2deg);opacity:0}
+    }
+
+    .responsive-showcase.responsive-mockups{
+      padding-bottom:40px!important;
+    }
+
+    .mockup-stage{
+      min-height:590px!important;
+    }
+
+    .robot-palm{
+      width:470px;
+      height:300px;
+      right:-126px;
+      bottom:-30px;
+    }
+
+    .mockup-stage::before{
+      width:310px;
+      height:130px;
+      right:-4px;
+      bottom:85px;
+    }
+
+    .mockup-stage::after{
+      right:250px;
+      bottom:165px;
+    }
+
+    @keyframes gdOrbitLight{
+      from{translate:0 0;opacity:.38}
+      to{translate:205px 68px;opacity:1}
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    body::before,
+    body::after,
+    .dashboard::after,
+    .floating::before,
+    .touch-hand .touch-point,
+    .touch-hand .touch-core,
+    .robot-palm .circuit,
+    .robot-palm .palm-glow,
+    .responsive-mockups .device-mockup,
+    .mockup-stage::before,
+    .mockup-stage::after{
+      animation-duration:12s!important;
+    }
+  }
+</style>
+
+<script id="gd-holographic-script-v15">
+(() => {
+  const heroVisual = document.querySelector('.hero-visual');
+  const floatingCards = heroVisual ? [...heroVisual.querySelectorAll('.floating')] : [];
+  const responsiveShowcase = document.querySelector('.responsive-showcase.responsive-mockups');
+  const mockupStage = responsiveShowcase?.querySelector('.mockup-stage');
+
+  /* Cria a mão vetorial animada no hero. */
+  if (heroVisual && !heroVisual.querySelector('.touch-hand')) {
+    const hand = document.createElement('div');
+    hand.className = 'touch-hand';
+    hand.setAttribute('aria-hidden','true');
+    hand.innerHTML = `
+      <svg viewBox="0 0 260 320" role="presentation">
+        <defs>
+          <linearGradient id="handSkinGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e6f4ff"/>
+            <stop offset=".40" stop-color="#a7c5dd"/>
+            <stop offset=".72" stop-color="#6e8ca8"/>
+            <stop offset="1" stop-color="#263d57"/>
+          </linearGradient>
+        </defs>
+        <path class="skin" d="M222 310c-20-53-39-92-60-127l-23-38c-7-12-4-27 7-34 11-7 25-3 33 9l20 31-10-63c-2-13 7-25 20-27 13-2 25 7 27 20l16 110c3 23 2 45-5 67l-11 36-14 16Z"/>
+        <path class="skin" d="M145 116 91 51c-9-11-8-27 3-36 11-9 27-7 36 4l52 68-37 29Z"/>
+        <path class="finger-highlight" d="M103 30c18 23 38 48 58 73"/>
+        <circle class="touch-point" cx="104" cy="27" r="14"/>
+        <circle class="touch-core" cx="104" cy="27" r="5"/>
+      </svg>`;
+    heroVisual.appendChild(hand);
+  }
+
+  /* Cria a palma robótica vetorial na seção responsiva. */
+  if (mockupStage && !mockupStage.querySelector('.robot-palm')) {
+    const palm = document.createElement('div');
+    palm.className = 'robot-palm';
+    palm.setAttribute('aria-hidden','true');
+    palm.innerHTML = `
+      <svg viewBox="0 0 700 450" role="presentation">
+        <defs>
+          <linearGradient id="robotMetal" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d9efff"/>
+            <stop offset=".24" stop-color="#6d8eaf"/>
+            <stop offset=".53" stop-color="#263b57"/>
+            <stop offset=".76" stop-color="#9cc6e6"/>
+            <stop offset="1" stop-color="#18273d"/>
+          </linearGradient>
+          <radialGradient id="palmGlow">
+            <stop offset="0" stop-color="#6eeaff" stop-opacity=".75"/>
+            <stop offset=".48" stop-color="#3f79ff" stop-opacity=".22"/>
+            <stop offset="1" stop-color="#131b42" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <ellipse class="palm-glow" cx="342" cy="215" rx="235" ry="126"/>
+        <path class="metal" d="M102 236c54-40 116-57 183-52 44 3 82 13 123 31 53 23 101 34 159 31l82-5 30 92-111 27c-76 18-153 22-231 12l-114-14c-55-7-102-35-121-82l-12-30 12-10Z"/>
+        <path class="metal" d="M118 230 38 182c-15-9-20-28-11-43 9-15 28-20 43-11l91 55-43 47Z"/>
+        <path class="metal" d="M159 205 79 126c-12-12-12-31 0-43 12-12 31-12 43 0l87 87-50 35Z"/>
+        <path class="metal" d="M213 187 149 81c-9-15-4-34 11-43 15-9 34-4 43 11l66 111-56 27Z"/>
+        <path class="metal" d="M275 181 240 68c-5-17 5-34 22-39 17-5 34 5 39 22l36 119-62 11Z"/>
+        <circle class="joint" cx="149" cy="215" r="27"/>
+        <circle class="joint" cx="204" cy="181" r="25"/>
+        <circle class="joint" cx="270" cy="170" r="26"/>
+        <circle class="joint" cx="345" cy="210" r="48"/>
+        <path class="circuit" d="M181 285c68 26 142 32 218 16 53-11 100-16 155-14"/>
+        <path class="circuit" d="M286 244c34 18 74 22 115 10"/>
+      </svg>`;
+    mockupStage.appendChild(palm);
+  }
+
+  /* A mão se autoreproduz ao entrar na tela e escolhe um card diferente. */
+  let heroTimer = null;
+  let handStep = 0;
+
+  const playHandSequence = () => {
+    const hand = heroVisual?.querySelector('.touch-hand');
+    if (!hand || !floatingCards.length) return;
+
+    floatingCards.forEach(card => card.classList.remove('hand-target'));
+    hand.className = `touch-hand hand-step-${handStep}`;
+    floatingCards[handStep]?.classList.add('hand-target');
+    heroVisual.classList.add('is-hand-active');
+
+    window.setTimeout(() => {
+      floatingCards[handStep]?.classList.remove('hand-target');
+      handStep = (handStep + 1) % floatingCards.length;
+    }, 2300);
+  };
+
+  const startHeroAnimation = () => {
+    if (heroTimer) return;
+    playHandSequence();
+    heroTimer = window.setInterval(playHandSequence, 2900);
+  };
+
+  const stopHeroAnimation = () => {
+    if (!heroTimer) return;
+    clearInterval(heroTimer);
+    heroTimer = null;
+  };
+
+  if (heroVisual && 'IntersectionObserver' in window) {
+    const heroObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) startHeroAnimation();
+        else stopHeroAnimation();
+      });
+    }, { threshold:.22 });
+    heroObserver.observe(heroVisual);
+  } else {
+    startHeroAnimation();
+  }
+
+  /* Inicia mão robótica e dispositivos quando a seção entra na tela. */
+  if (responsiveShowcase && 'IntersectionObserver' in window) {
+    const responsiveObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        responsiveShowcase.classList.toggle('robot-live',entry.isIntersecting);
+      });
+    }, { threshold:.20 });
+    responsiveObserver.observe(responsiveShowcase);
+  } else if (responsiveShowcase) {
+    responsiveShowcase.classList.add('robot-live');
+  }
+
+  /* Anima elementos pela rolagem, sem imagens ou vídeos externos. */
+  const movingElements = [
+    ...document.querySelectorAll(
+      '.section-heading,.responsive-copy,.price-card,.premium-material-card,.feature-panel'
+    )
+  ];
+
+  movingElements.forEach(item => item.classList.add('scroll-dormant'));
+
+  if ('IntersectionObserver' in window) {
+    const movementObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('scroll-awake',entry.isIntersecting);
+        entry.target.classList.toggle('scroll-dormant',!entry.isIntersecting);
+      });
+    }, {
+      threshold:.14,
+      rootMargin:'0px 0px -8% 0px'
+    });
+    movingElements.forEach(item => movementObserver.observe(item));
+  } else {
+    movingElements.forEach(item => {
+      item.classList.remove('scroll-dormant');
+      item.classList.add('scroll-awake');
+    });
+  }
+
+  /* Leve parallax controlado pela posição de rolagem. */
+  let ticking = false;
+  const updateParallax = () => {
+    ticking = false;
+    const viewport = window.innerHeight;
+
+    document.querySelectorAll('.scroll-awake').forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const normalized = Math.max(-1,Math.min(1,(center - viewport/2)/viewport));
+      item.style.setProperty('--scroll-lift',`${normalized * -7}px`);
+    });
+  };
+
+  window.addEventListener('scroll',() => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateParallax);
+    }
+  },{passive:true});
+
+  updateParallax();
+})();
+</script>
+<!-- ===== FIM DA IDENTIDADE HOLOGRÁFICA V15 ===== -->
 
 </body>
 </html>

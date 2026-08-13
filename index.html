@@ -1651,6 +1651,140 @@ img,svg,video,canvas{max-width:100%}
 }
 
 </style>
+
+<style id="gd-v23-planos">
+  #investimento .pricing-wrap{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:stretch;
+  }
+
+  .plan-card{
+    display:flex;
+    flex-direction:column;
+    min-height:100%;
+  }
+
+  .plan-card.monthly{
+    border-color:rgba(78,227,194,.28);
+    background:
+      radial-gradient(circle at 88% 10%,rgba(78,227,194,.13),transparent 25%),
+      radial-gradient(circle at 10% 92%,rgba(111,124,255,.13),transparent 30%),
+      linear-gradient(145deg,rgba(15,31,43,.93),rgba(8,16,26,.92));
+  }
+
+  .plan-badge{
+    align-self:flex-start;
+    margin-bottom:14px;
+    padding:7px 11px;
+    border-radius:999px;
+    border:1px solid rgba(78,227,194,.22);
+    background:rgba(78,227,194,.09);
+    color:#9affea;
+    font-size:.72rem;
+    font-weight:900;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+
+  .plan-card .price{
+    font-size:clamp(3rem,6.2vw,5.7rem);
+    margin-bottom:8px;
+  }
+
+  .plan-card .price .price-suffix{
+    font-size:.27em;
+    font-weight:800;
+    letter-spacing:-.02em;
+    color:#cbd4ff;
+    -webkit-text-fill-color:#cbd4ff;
+  }
+
+  .plan-note{
+    margin:0 0 20px;
+    color:var(--muted);
+    font-size:.88rem;
+    line-height:1.6;
+  }
+
+  .plan-note strong{
+    color:#fff;
+  }
+
+  .plan-features{
+    display:grid;
+    gap:10px;
+    margin:4px 0 22px;
+  }
+
+  .plan-feature{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.025);
+    color:#dfe4f2;
+    font-size:.86rem;
+    line-height:1.45;
+  }
+
+  .plan-feature i{
+    font-style:normal;
+    color:#9affea;
+    font-weight:900;
+  }
+
+  .plan-card .system-demo-button{
+    margin-top:auto;
+  }
+
+  .implantation-box{
+    margin:2px 0 20px;
+    padding:14px 15px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.035);
+  }
+
+  .implantation-box strong{
+    display:block;
+    margin-bottom:3px;
+    color:#fff;
+    font-size:.96rem;
+  }
+
+  .implantation-box span{
+    color:var(--muted);
+    font-size:.82rem;
+    line-height:1.45;
+  }
+
+  .contract-note{
+    margin-top:20px;
+    padding:17px 19px;
+    border:1px solid rgba(126,142,255,.18);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+    color:var(--muted);
+    font-size:.84rem;
+    line-height:1.6;
+    text-align:center;
+  }
+
+  .contract-note strong{color:#fff}
+
+  .investment-demo{
+    display:flex;
+    justify-content:center;
+    margin-top:18px;
+  }
+
+  @media(max-width:960px){
+    #investimento .pricing-wrap{grid-template-columns:1fr}
+  }
+</style>
+
 </head>
 <body>
   
@@ -1797,47 +1931,84 @@ img,svg,video,canvas{max-width:100%}
 </section>
 
 <section id="investimento">
-      <div class="shell">
-        <div class="section-heading">
-          <span class="eyebrow">Investimento</span>
-          <h2>Uma estrutura completa para substituir o processo manual.</h2>
+  <div class="shell">
+    <div class="section-heading">
+      <span class="eyebrow">Investimento</span>
+      <h2>Escolha a modalidade que melhor se adapta ao escritório.</h2>
+      <p>O mesmo sistema, com duas formas de contratação: licença mensal ou aquisição definitiva.</p>
+    </div>
+
+    <div class="pricing-wrap">
+
+      <article class="price-card plan-card monthly">
+        <div class="plan-badge">Menor investimento inicial</div>
+        <div class="price-label">Licença de uso mensal</div>
+
+        <div class="price">
+          R$ 200<span class="price-suffix">/mês*</span>
         </div>
 
-        <div class="pricing-wrap">
-          <article class="price-card">
-            <div class="price-label">Desenvolvimento completo</div>
-            <div class="price">R$ 2.000</div>
-            <div class="installments">40% na aprovação · 30% na versão funcional · 30% na entrega</div>
-            
-<a
-  class="btn system-demo-button"
-  id="systemDemoButton"
-  href="https://figazdev.github.io/sistemagdadvocacia/"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Conhecer o sistema GD Advocacia em uma nova aba"
->
-  Conhecer o sistema <span aria-hidden="true">↗</span>
-</a>
-            <div class="price-points">
-              <div class="mini"><strong>Até 6 modelos</strong><span>Documentos configurados</span></div>
-              <div class="mini"><strong>30 dias</strong><span>Suporte gratuito pós-entrega</span></div>
-              <div class="mini"><strong>25–35 dias úteis</strong><span>Prazo estimado</span></div>
-              <div class="mini domain-highlight"><strong>www.gdadvocacia.adv.br</strong><span>Domínio profissional válido por 1 ano, com renovação conforme a necessidade.</span></div>
-            </div>
-          </article>
+        <p class="plan-note">
+          *Valor mensal com <strong>fidelidade de 12 meses</strong>.<br>
+          Sem fidelidade, a mensalidade é de <strong>R$ 250,00</strong>.
+        </p>
 
-          <div class="side-price">
-
-            <article class="card">
-              <div class="price-label">Expansões</div>
-              <h3 style="margin-top:10px">Sob orçamento</h3>
-              <p>Após os 30 dias de suporte gratuito, correções decorrentes de mudanças externas, novos modelos, alterações, integrações e funcionalidades serão avaliados e orçados conforme a necessidade.</p>
-            </article>
-          </div>
+        <div class="implantation-box">
+          <strong>Implantação: R$ 300,00</strong>
+          <span>Configuração inicial do escritório, identidade visual, criação da administradora e preparação do ambiente de uso.</span>
         </div>
-      </div>
-    </section>
+
+        <div class="plan-features">
+          <div class="plan-feature"><i>✓</i><span>Até 10 usuários ativos</span></div>
+          <div class="plan-feature"><i>✓</i><span>Até 6 modelos de documentos configurados</span></div>
+          <div class="plan-feature"><i>✓</i><span>Hospedagem, login individual e histórico sincronizado</span></div>
+          <div class="plan-feature"><i>✓</i><span>Atualizações corretivas e suporte básico durante a assinatura</span></div>
+          <div class="plan-feature"><i>✓</i><span>Uso do sistema enquanto a licença estiver ativa</span></div>
+        </div>
+      </article>
+
+      <article class="price-card plan-card">
+        <div class="price-label">Compra definitiva</div>
+
+        <div class="price">R$ 2.000</div>
+        <div class="installments">40% na aprovação · 30% na versão funcional · 30% na entrega</div>
+
+        <div class="plan-features">
+          <div class="plan-feature"><i>✓</i><span>Licença definitiva da versão contratada</span></div>
+          <div class="plan-feature"><i>✓</i><span>Até 10 usuários ativos</span></div>
+          <div class="plan-feature"><i>✓</i><span>Até 6 modelos de documentos configurados</span></div>
+          <div class="plan-feature"><i>✓</i><span>30 dias de suporte gratuito após a entrega</span></div>
+          <div class="plan-feature"><i>✓</i><span>Novas funcionalidades e expansões orçadas separadamente</span></div>
+        </div>
+
+        <div class="price-points">
+          <div class="mini"><strong>25–35 dias úteis</strong><span>Prazo estimado</span></div>
+          <div class="mini domain-highlight"><strong>www.gdadvocacia.adv.br</strong><span>Domínio profissional válido por 1 ano.</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="contract-note">
+      <strong>Formalização da contratação:</strong>
+      a modalidade escolhida será formalizada por meio de contrato a ser assinado pelas partes,
+      contendo condições de uso, pagamento, suporte, fidelidade quando aplicável e demais termos da prestação do serviço.
+    </div>
+
+    <div class="investment-demo">
+      <a
+        class="btn system-demo-button"
+        id="systemDemoButton"
+        href="https://figazdev.github.io/sistemagdadvocacia/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Conhecer o sistema GD Advocacia em uma nova aba"
+      >
+        Conhecer o sistema <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 
 
